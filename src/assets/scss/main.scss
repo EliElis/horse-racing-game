@@ -1,0 +1,38 @@
+@use './reset.scss';
+
+#app {
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f8fafc;
+  text-rendering: optimizeLegibility;
+}
+
+button {
+  font-family: inherit;
+}
+
+table {
+  border-spacing: 0;
+}
+
+.button {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.button-primary {
+
+}
+
+.button-secondary {
+
+}
