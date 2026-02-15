@@ -3,8 +3,8 @@
     <div class="horse-list-content">
       <h2 class="horse-list-title">Horse List</h2>
       <SimpleTable title="Horse List" :columns="columns" :rows="horses">
-        <template #color="{ value }">
-          <span class="color-box" :style="{ backgroundColor: value as string }" />
+        <template #color="{ value, row }">
+          <ColorBox :color="(value as string)" :label="(row.colorName as string)" />
         </template>
       </SimpleTable>
     </div>
@@ -15,6 +15,7 @@
 import { storeToRefs } from 'pinia'
 import { useHorsesStore } from '@/stores/horses'
 import SimpleTable, { type Column } from '@/components/partials/SimpleTable.vue'
+import ColorBox from '@/components/partials/ColorBox.vue'
 
 const { horses } = storeToRefs(useHorsesStore())
 
@@ -41,12 +42,5 @@ const columns: Column[] = [
     z-index: 1;
   }
 
-  .color-box {
-    display: block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--border-color);
-    border-radius: var(--border-radius-button);
-  }
 }
 </style>

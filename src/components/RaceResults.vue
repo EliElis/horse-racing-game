@@ -35,5 +35,12 @@ const columns: Column[] = [
   min-width: 240px;
   max-height: calc(100dvh - var(--header-height) - 48px);
   overflow-y: auto;
+
+  h2 {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-white);
+    z-index: 2;
+  }
 }
 </style>

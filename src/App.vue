@@ -4,24 +4,24 @@
     <div class="header-buttons">
       <button
         v-if="!raceStore.isScheduleGenerated"
-        class="button"
+        class="button button-success"
         @click="raceStore.generateSchedule()"
       >
         Generate schedule
       </button>
-      <button v-else class="button" @click="raceStore.resetRace()">
+      <button v-else class="button button-danger" @click="raceStore.resetRace()">
         Reset Race
       </button>
       <button
         v-if="raceStore.isRacing && !raceStore.isPaused"
-        class="button"
+        class="button button-warning"
         @click="raceStore.pauseRace()"
       >
         Pause
       </button>
       <button
         v-else
-        class="button"
+        class="button button-success"
         :disabled="!raceStore.isScheduleGenerated || raceStore.isRaceComplete"
         @click="raceStore.startRace()"
       >
@@ -62,14 +62,15 @@ horsesStore.initializeHorses()
   height: var(--header-height);
   background-color: var(--color-white);
   border-bottom: 1px solid var(--border-color);
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  z-index: 10;
   .title {
     margin-bottom: 0;
   }
   .header-buttons {
     display: flex;
-    gap: 16px;
+    gap: 12px;
   }
 }
 
@@ -80,24 +81,25 @@ horsesStore.initializeHorses()
   height: calc(100dvh - var(--header-height));
   max-height: calc(100dvh - var(--header-height));
   gap: 16px;
-  padding-top: 16px;
+  padding: 24px;
   overflow: hidden;
 }
 
 .main-content {
-  max-width: 100%;
-  width: 43%;
+  max-width: 850px;
+  width: 46%;
   overflow: auto;
 }
 
 .aside-left {
   min-width: 310px;
-  width: 21%;
+  width: 24%;
   overflow: auto;
 }
 
 .aside-right {
   display: flex;
+  width: 28%;
   gap: 16px;
 }
 </style>

@@ -16,7 +16,6 @@ const props = withDefaults(
   defineProps<{
     fillColor: string
     isRunning?: boolean
-    size?: number
   }>(),
   {
     isRunning: false,

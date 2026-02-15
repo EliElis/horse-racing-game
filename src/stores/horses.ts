@@ -7,6 +7,7 @@ export interface Horse {
   id: number
   name: string
   color: string
+  colorName: string
   condition: number
 }
 
@@ -21,6 +22,7 @@ export const useHorsesStore = defineStore('horses', () => {
     horses.value = shuffledNames.map((name, index) => ({
       name,
       color: shuffledColors[index]!.color,
+      colorName: shuffledColors[index]!.name,
       id: index + 1,
       condition: generateCondition(),
     }))

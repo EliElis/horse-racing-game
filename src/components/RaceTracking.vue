@@ -71,9 +71,9 @@ function progressPercent(horseId: number): number {
   align-items: center;
   gap: 8px;
   background: #f5f5f5;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border-color);
   padding: 4px 8px;
-  max-height: 70px;
+  height: 70px;
   .number {
     position: relative;
     display: flex;
@@ -82,7 +82,7 @@ function progressPercent(horseId: number): number {
     width: 60px;
     min-height: 60px;
     height: 100%;
-    color: #fff;
+    color: var(--color-white);
     z-index: 1;
 
     &:before {
