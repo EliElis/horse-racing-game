@@ -68,19 +68,19 @@ export const useRaceStore = defineStore('race', () => {
       return
     }
 
+    const round = schedule.value[currentRound.value]
+    if (!round) return
+
     isRacing.value = true
     isPaused.value = false
 
-    const round = schedule.value[currentRound.value]
-    if (round) {
-      const initialProgress: Record<number, number> = {}
-      round.horses.forEach((horse) => {
-        initialProgress[horse.id] = 0
-      })
-      raceProgress.value = initialProgress
-      finishOrder.value = []
-      startSimulation()
-    }
+    const initialProgress: Record<number, number> = {}
+    round.horses.forEach((horse) => {
+      initialProgress[horse.id] = 0
+    })
+    raceProgress.value = initialProgress
+    finishOrder.value = []
+    startSimulation()
   }
 
   function startSimulation() {
