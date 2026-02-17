@@ -17,9 +17,9 @@
                 class="horse"
                 :style="{ left: progressPercent(horse.id) + '%' }"
                 :fill-color="horse.color"
-                :is-running="
-                  raceStore.isRacing && !raceStore.isPaused && progressPercent(horse.id) < 100
-                "
+                :is-running="isHorseRunning(horse.id)"
+                :animation-speed="horseAnimationSpeed(horse.condition)"
+                @transitionend="onHorseTransitionEnd($event, horse.id)"
               />
             </div>
           </div>
@@ -37,12 +37,29 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, reactive, watch } from 'vue'
 import { useRaceStore } from '@/stores/race'
 import RunningHorse from '@/components/partials/RunningHorse.vue'
 import RaceNotice from '@/components/partials/RaceNotice.vue'
 
 const raceStore = useRaceStore()
+const transitionFinished = reactive(new Set<number>())
+
+watch(() => raceStore.currentRound, () => {
+  transitionFinished.clear()
+})
+
+function isHorseRunning(horseId: number): boolean {
+  if (!raceStore.isRacing || raceStore.isPaused) return false
+  return !transitionFinished.has(horseId);
+
+}
+
+function onHorseTransitionEnd(event: TransitionEvent, horseId: number) {
+  if (event.propertyName === 'left' && progressPercent(horseId) >= 100) {
+    transitionFinished.add(horseId)
+  }
+}
 
 const raceNoticeText = computed(() => {
   if (raceStore.isRaceComplete) return 'All races are finished!'
@@ -52,6 +69,10 @@ const raceNoticeText = computed(() => {
     return `Round ${raceStore.currentRound} is finished.\n Press START for the next round!`
   return null
 })
+
+function horseAnimationSpeed(condition: number): number {
+  return 200 - (condition / 100) * 120
+}
 
 function progressPercent(horseId: number): number {
   const progress = raceStore.raceProgress[horseId] ?? 0

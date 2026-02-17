@@ -16,9 +16,11 @@ const props = withDefaults(
   defineProps<{
     fillColor: string
     isRunning?: boolean
+    animationSpeed?: number
   }>(),
   {
     isRunning: false,
+    animationSpeed: 150,
   },
 )
 
@@ -30,10 +32,10 @@ const currentFrame = computed(() =>
 )
 
 function startAnimation() {
-  if (intervalId) return
+  stopAnimation()
   intervalId = setInterval(() => {
     currentFrameIndex.value = (currentFrameIndex.value + 1) % FRAME_COUNT
-  }, 150)
+  }, props.animationSpeed)
 }
 
 function stopAnimation() {
@@ -44,8 +46,8 @@ function stopAnimation() {
 }
 
 watch(
-  () => props.isRunning,
-  (running) => {
+  () => [props.isRunning, props.animationSpeed] as const,
+  ([running]) => {
     if (running) {
       startAnimation()
     } else {
