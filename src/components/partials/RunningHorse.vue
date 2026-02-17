@@ -9,7 +9,7 @@ import horse2Raw from '@/assets/img/svg/horse-2.svg?raw'
 import horse3Raw from '@/assets/img/svg/horse-3.svg?raw'
 import horseStandingRaw from '@/assets/img/svg/horse-standing.svg?raw'
 
-const frames = [horse1Raw, horse2Raw, horse1Raw, horse3Raw]
+const frames = [horse1Raw, horse2Raw, horse3Raw, horse2Raw]
 const FRAME_COUNT = frames.length
 
 const props = withDefaults(

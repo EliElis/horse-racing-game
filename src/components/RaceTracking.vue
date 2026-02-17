@@ -13,7 +13,7 @@
               class="horse"
               :style="{ left: progressPercent(horse.id) + '%' }"
               :fill-color="horse.color"
-              :is-running="raceStore.isRacing && !raceStore.isPaused"
+              :is-running="raceStore.isRacing && !raceStore.isPaused && progressPercent(horse.id) < 100"
             />
           </div>
         </div>
