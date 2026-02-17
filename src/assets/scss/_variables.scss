@@ -2,17 +2,14 @@
   --border-color: #0000001a;
   --border-radius: 8px;
   --border-radius-button: 4px;
-
   --color-white: #fff;
   --color-text: #333;
-
   --color-success: #22c55e;
   --color-success-hover: #16a34a;
   --color-danger: #ef4444;
   --color-danger-hover: #dc2626;
   --color-warning: #f97316;
   --color-warning-hover: #ea580c;
-
   --header-height: 62px;
   --content-height: calc(100dvh - var(--header-height));
   --content-height-padded: calc(100dvh - var(--header-height) - 48px);
@@ -23,16 +20,16 @@ $breakpoint-md: 768px;
 $breakpoint-sm: 480px;
 
 @mixin tooltip {
-  padding: 4px 8px;
-  border-radius: var(--border-radius-button);
-  background-color: #333;
-  color: var(--color-white);
-  font-size: 12px;
-  white-space: nowrap;
-  opacity: 0;
   visibility: hidden;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--color-white);
+  white-space: nowrap;
+  pointer-events: none;
+  background-color: #333;
+  border-radius: var(--border-radius-button);
+  opacity: 0;
   transition:
     opacity 0.2s,
     visibility 0.2s;
-  pointer-events: none;
 }

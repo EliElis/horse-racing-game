@@ -16,17 +16,17 @@ defineProps<{
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 12px;
-  padding: 16px;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
-  background-color: var(--color-white);
+  align-items: center;
   max-width: 300px;
-  z-index: 2;
+  padding: 16px;
+  background-color: var(--color-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transform: translate(-50%, -50%);
 }
 
 .race-notice-text {

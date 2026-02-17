@@ -42,10 +42,12 @@ const columns: Column[] = [
 
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
+
 .race-schedule {
   min-width: 0;
   max-height: var(--content-height-padded);
   overflow-y: auto;
+
   @media (max-width: $breakpoint-md) {
     max-height: none;
   }
@@ -53,9 +55,9 @@ const columns: Column[] = [
   h2 {
     position: sticky;
     top: 0;
-    background-color: var(--color-white);
-    padding-top: 8px;
     z-index: 2;
+    padding-top: 8px;
+    background-color: var(--color-white);
   }
 }
 </style>

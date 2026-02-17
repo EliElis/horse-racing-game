@@ -65,24 +65,25 @@ watch(
 .accordion-item {
   margin-bottom: 4px;
 }
+
 .accordion-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  text-transform: initial;
+  justify-content: space-between;
   width: 100%;
   padding: 8px;
-  border: none;
   font-size: 15px;
   font-weight: 600;
+  text-transform: initial;
   cursor: pointer;
   background-color: #f1f5f9;
+  border: none;
   transition: background-color 0.2s;
 
   .accordion-icon {
+    flex-shrink: 0;
     width: 16px;
     height: 16px;
-    flex-shrink: 0;
     margin-left: 8px;
     transition: transform 0.25s ease;
   }
@@ -97,6 +98,7 @@ watch(
 
   &.active {
     background-color: #e2e8f0;
+
     &:hover {
       background-color: #cbd5e1;
     }
@@ -114,13 +116,13 @@ watch(
 
 .collapse-enter-from,
 .collapse-leave-to {
-  opacity: 0;
   max-height: 0;
+  opacity: 0;
 }
 
 .collapse-enter-to,
 .collapse-leave-from {
-  opacity: 1;
   max-height: 500px;
+  opacity: 1;
 }
 </style>

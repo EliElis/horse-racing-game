@@ -34,8 +34,10 @@ defineProps<{
 <style scoped>
 .table {
   min-width: 200px;
+
   table {
     width: 100%;
+
     th,
     td {
       padding: 4px 8px;
@@ -43,17 +45,19 @@ defineProps<{
     }
 
     th {
-      text-align: left;
       padding-bottom: 10px;
+      text-align: left;
     }
 
     tbody {
       tr {
         background-color: transparent;
         transition: background-color 0.2s ease;
+
         &:hover {
           background-color: #f8fafc;
         }
+
         &:last-child {
           td {
             border-bottom: none;

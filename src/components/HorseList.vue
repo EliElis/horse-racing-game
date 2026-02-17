@@ -30,16 +30,16 @@ const columns: Column[] = [
 <style scoped>
 .horse-list {
   .horse-list-content {
-    overflow-y: auto;
     max-height: 100%;
+    overflow-y: auto;
   }
 
   .horse-list-title {
     position: sticky;
     top: 0;
+    z-index: 1;
     padding-left: 8px;
     background-color: var(--color-white);
-    z-index: 1;
   }
 }
 </style>

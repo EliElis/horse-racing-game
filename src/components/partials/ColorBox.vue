@@ -14,13 +14,14 @@ defineProps<{
 
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
+
 .color-box-wrapper {
   position: relative;
   display: inline-block;
 
   &:hover .color-box-tooltip {
-    opacity: 1;
     visibility: visible;
+    opacity: 1;
   }
 }
 
@@ -28,9 +29,9 @@ defineProps<{
   display: block;
   width: 20px;
   height: 20px;
+  cursor: pointer;
   border: 2px solid var(--border-color);
   border-radius: var(--border-radius-button);
-  cursor: pointer;
 }
 
 .color-box-tooltip {

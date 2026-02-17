@@ -97,19 +97,21 @@ function progressPercent(horseId: number): number {
 
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
+
 .race-tracking {
   --lane-height: 70px;
   --horse-icon-size: 60px;
-
   position: relative;
   min-width: 300px;
   max-height: var(--content-height-padded);
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
   overflow: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+
   &.race-tracking-placeholder {
     overflow: hidden;
   }
+
   @media (max-width: $breakpoint-md) {
     max-height: none;
   }
@@ -117,27 +119,28 @@ function progressPercent(horseId: number): number {
 
 .race-tracking-lane {
   display: flex;
-  align-items: center;
   gap: 8px;
+  align-items: center;
+  height: var(--lane-height);
+  padding: 4px 8px;
   background: #f5f5f5;
   border-bottom: 1px solid var(--border-color);
-  padding: 4px 8px;
-  height: var(--lane-height);
+
   .number {
     position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     width: var(--horse-icon-size);
-    min-height: var(--horse-icon-size);
     height: 100%;
+    min-height: var(--horse-icon-size);
     color: var(--color-white);
     cursor: pointer;
-    z-index: 1;
 
     &:hover .number-tooltip {
-      opacity: 1;
       visibility: visible;
+      opacity: 1;
     }
 
     .number-tooltip {
@@ -145,19 +148,19 @@ function progressPercent(horseId: number): number {
       position: absolute;
       top: 50%;
       left: calc(100% + 4px);
-      transform: translateY(-50%);
       z-index: 10;
+      transform: translateY(-50%);
     }
 
-    &:before {
-      content: '';
+    &::before {
       position: absolute;
+      z-index: -1;
       width: 38px;
       height: 38px;
+      content: '';
       background-color: var(--horse-color, #9e9e9e);
-      border-radius: 50%;
-      z-index: -1;
       border: 3px solid var(--border-color);
+      border-radius: 50%;
     }
   }
 
@@ -170,8 +173,8 @@ function progressPercent(horseId: number): number {
 
   .horse {
     position: relative;
-    transition: left 0.3s linear;
     transform: translateX(-100%);
+    transition: left 0.3s linear;
 
     :deep(svg) {
       width: var(--horse-icon-size);

@@ -8,8 +8,8 @@
 
 html,
 body {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
   line-height: 1.5;
   color: var(--color-text);
   background-color: #f8fafc;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
 }
 
 table {
@@ -28,25 +28,26 @@ table {
 #app {
   height: 100dvh;
   max-height: 100dvh;
+
   @media (max-width: $breakpoint-lg) {
-    max-height: unset;
     height: auto;
+    max-height: unset;
   }
 }
 
 .container {
   max-width: 1920px;
-  padding-left: 24px;
   padding-right: 24px;
+  padding-left: 24px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  background-color: var(--color-white);
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
   padding: 8px;
+  background-color: var(--color-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
 }
 
 .pt-0 {

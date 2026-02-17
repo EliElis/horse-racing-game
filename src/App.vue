@@ -69,28 +69,31 @@ horsesStore.initializeHorses()
 @use '@/assets/scss/variables' as *;
 
 .header {
+  z-index: 10;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   min-height: var(--header-height);
-  background-color: var(--color-white);
-  border-bottom: 1px solid var(--border-color);
   padding-top: 10px;
   padding-bottom: 10px;
-  z-index: 10;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--border-color);
 
   .header-logo {
     display: flex;
-    align-items: center;
     gap: 12px;
+    align-items: center;
   }
+
   .logo {
-    height: 40px;
     width: auto;
+    height: 40px;
   }
+
   .title {
     margin-bottom: 0;
   }
+
   .header-buttons {
     display: flex;
     gap: 12px;
@@ -100,8 +103,8 @@ horsesStore.initializeHorses()
 .main {
   display: grid;
   grid-template-columns: minmax(310px, 1fr) minmax(0, 2fr) minmax(0, 1.2fr);
-  align-items: start;
   gap: 16px;
+  align-items: start;
   height: var(--content-height);
   max-height: var(--content-height);
   padding: 24px;
@@ -132,6 +135,7 @@ horsesStore.initializeHorses()
     position: sticky;
     top: 0;
   }
+
   .main {
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
     height: auto;
@@ -150,9 +154,11 @@ horsesStore.initializeHorses()
     flex-wrap: wrap;
     gap: 8px;
     height: auto;
+
     .title {
       font-size: 20px;
     }
+
     .header-buttons {
       gap: 8px;
     }
@@ -162,8 +168,8 @@ horsesStore.initializeHorses()
     grid-template-columns: 1fr;
     height: auto;
     max-height: none;
-    overflow-y: auto;
     padding: 16px;
+    overflow-y: auto;
   }
 
   .aside-left {
@@ -177,18 +183,19 @@ horsesStore.initializeHorses()
 
 @media (max-width: $breakpoint-sm) {
   .header {
-    padding-left: 12px;
-    padding-right: 12px;
     justify-content: center;
+    padding-right: 12px;
+    padding-left: 12px;
+
     .header-buttons {
-      width: 100%;
       justify-content: center;
+      width: 100%;
     }
   }
 
   .main {
-    padding: 12px;
     gap: 12px;
+    padding: 12px;
   }
 }
 </style>

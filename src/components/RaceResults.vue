@@ -47,10 +47,12 @@ const latestResultIndex = computed(() => {
 
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
+
 .race-results {
   min-width: 0;
   max-height: var(--content-height-padded);
   overflow-y: auto;
+
   @media (max-width: $breakpoint-md) {
     max-height: none;
   }
@@ -58,9 +60,9 @@ const latestResultIndex = computed(() => {
   h2 {
     position: sticky;
     top: 0;
-    background-color: var(--color-white);
     z-index: 2;
     padding-top: 8px;
+    background-color: var(--color-white);
   }
 }
 </style>
