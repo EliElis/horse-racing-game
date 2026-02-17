@@ -1,6 +1,9 @@
 <template>
   <header class="header container">
-    <h1 class="title">Horse Racing</h1>
+    <div class="header-logo">
+      <img src="@/assets/img/svg/logo.svg" alt="Horse Racing" class="logo" />
+      <h1 class="title">Horse Racing</h1>
+    </div>
     <div class="header-buttons">
       <button
         v-if="!raceStore.isScheduleGenerated"
@@ -8,9 +11,6 @@
         @click="raceStore.generateSchedule()"
       >
         Generate schedule
-      </button>
-      <button v-else class="button button-danger" @click="raceStore.resetRace()">
-        Reset Race
       </button>
       <button
         v-if="raceStore.isRacing && !raceStore.isPaused"
@@ -26,6 +26,9 @@
         @click="raceStore.startRace()"
       >
         Start
+      </button>
+      <button v-if="raceStore.isScheduleGenerated" class="button button-danger" @click="raceStore.resetRace()">
+        Reset Race
       </button>
     </div>
   </header>
@@ -64,12 +67,21 @@ horsesStore.initializeHorses()
   min-height: var(--header-height);
   background-color: var(--color-white);
   border-bottom: 1px solid var(--border-color);
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   z-index: 10;
   @media (max-width: $breakpoint-lg) {
     position: sticky;
     top: 0;
+  }
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo {
+    height: 40px;
+    width: auto;
   }
   .title {
     margin-bottom: 0;
@@ -96,6 +108,7 @@ horsesStore.initializeHorses()
 }
 
 .aside-left {
+  max-height: calc(100dvh - var(--header-height) - 60px);
   overflow: auto;
 }
 

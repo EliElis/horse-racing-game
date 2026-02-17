@@ -1,7 +1,7 @@
 <template>
   <div class="race-notice">
     <div class="race-notice-content">
-      <img src="@/assets/img/svg/horse-head.svg" alt="Horse Racing" width="80" />
+      <img src="@/assets/img/svg/horse-head.svg" alt="Horse Racing" width="60" />
       <h4 class="race-notice-text">{{ message }}</h4>
     </div>
   </div>

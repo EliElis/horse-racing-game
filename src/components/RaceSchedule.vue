@@ -3,7 +3,7 @@
     <h2>Schedule</h2>
     <Transition name="fade" mode="out-in">
       <div v-if="raceStore.isScheduleGenerated">
-        <AccordionList
+        <SimpleAccordion
           :items="(raceStore.schedule as Record<string, unknown>[])"
           item-key="index"
           :active-key="raceStore.currentRound + 1"
@@ -18,7 +18,7 @@
               </template>
             </SimpleTable>
           </template>
-        </AccordionList>
+        </SimpleAccordion>
       </div>
       <div v-else>
         <p>No schedule yet!</p>
@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import { useRaceStore } from '@/stores/race'
 import SimpleTable, { type Column } from '@/components/partials/SimpleTable.vue'
-import AccordionList from '@/components/partials/AccordionList.vue'
+import SimpleAccordion from '@/components/partials/SimpleAccordion.vue'
 
 const raceStore = useRaceStore()
 

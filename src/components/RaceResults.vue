@@ -2,7 +2,7 @@
   <div class="card race-results pt-0">
     <h2>Results</h2>
     <template v-if="raceStore.results && raceStore.results.length > 0">
-      <AccordionList
+      <SimpleAccordion
         :items="(raceStore.results as Record<string, unknown>[])"
         item-key="index"
         :active-key="latestResultIndex"
@@ -17,7 +17,7 @@
             </template>
           </SimpleTable>
         </template>
-      </AccordionList>
+      </SimpleAccordion>
     </template>
     <div v-else>
       <p>No results yet!</p>
@@ -30,7 +30,7 @@ import { computed } from 'vue'
 import { useRaceStore } from '@/stores/race'
 import type { Horse } from '@/stores/horses'
 import SimpleTable, { type Column } from '@/components/partials/SimpleTable.vue'
-import AccordionList from '@/components/partials/AccordionList.vue'
+import SimpleAccordion from '@/components/partials/SimpleAccordion.vue'
 
 const raceStore = useRaceStore()
 
